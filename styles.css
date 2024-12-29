@@ -1,0 +1,31 @@
+:root{
+    --body-color: #3c3b3e;
+    --text-color: #f0f0f0;
+}
+.searchbox{
+    outline: none;
+    border-radius: 1.5rem;
+    border-width: 0;
+    width: 100%;
+    font-size: 36px;
+    color: #0e0e0f;
+    position: relative;
+}
+.searchbox-items{
+    position: absolute;
+    z-index: 99;
+
+}
+.autosearch-container{
+    margin: 0 auto;
+    width: min(1000px, 100%)
+
+}
+
+body{
+    background-color: var(--body-color);
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text-color);
+}
