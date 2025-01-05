@@ -14,24 +14,37 @@ document.addEventListener("DOMContentLoaded", function(){
     searchbar.addEventListener("input", function(e){
         let result = []
         const searchTerm = e.target.value.toLowerCase()
-        if (searchTerm.length>2){
+        if (searchTerm.length){
             result = myArrayShowTitles.filter((keyword) => {return keyword.toLowerCase().includes(searchTerm.toLowerCase())})
             console.log(result)
             displayAutoSearch(result, resultbox)
 
         }
+        else{
+            resultbox.innerHTML = "";
+            resultbox.style.visibility = "hidden";
+        }
+
     })
+
 })
 function displayAutoSearch(result, ulbox){
     const content = result.map((list)=>{
         return "<li onclick=SelectInput(this)>" + list + "</li>"
     })
+    resultbox.style.visibility = "visible"
     ulbox.innerHTML = "<ul>" + content.join("") + "</ul>"
+
+    if (!result.length){
+        resultbox.style.visibility = "hidden"
+
+    }
 }
 
 function SelectInput(list){
     searchbar.value = list.innerHTML
     resultbox.innerHTML = "";
+    resultbox.style.visibility = "hidden";
 
 }
 async function getMovies(array){
